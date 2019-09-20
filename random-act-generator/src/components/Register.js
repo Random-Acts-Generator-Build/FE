@@ -24,7 +24,7 @@ const RegistrationForm = (props) => {
     return (
       <Form>
 
-        <h2 style={{textAlign:'center'}}>Member Registration</h2><br />
+        <h2 style={{textAlign:'center'}}>New Member Registration</h2><br />
 
         {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
         <Field type="text" name="username" placeholder="User Name" />

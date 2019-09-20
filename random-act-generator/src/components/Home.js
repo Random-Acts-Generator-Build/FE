@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import ModalModalExample from './Login';
-import Register from './Register';
+import RegistrationForm from './Register';
+import LoginForm from './Login';
 
 
 export default function Home() {
@@ -20,13 +21,9 @@ export default function Home() {
     
     {/* {Modal Section} */}
     
-    <ModalModalExample />
+    <LoginForm />
 
-    <Register />
-    
-
-    
-
+    <RegistrationForm />
     
     </>
   );
