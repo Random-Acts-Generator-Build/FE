@@ -4,6 +4,7 @@ import { Container, Button } from 'semantic-ui-react'
 import { NavLink } from "react-router-dom";
 import CreateAct from "./CreateAct";
 
+
 function Acts () {
     return (
         <Container>
