@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 function ContactList() {
+    const [placeholder, placeholder2] = placeholder(newContact);
     return (
         <div>
             

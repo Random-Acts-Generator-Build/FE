@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react';
 
 function ContactCard() {
+    const [placeholder, placeholder2] = placeholder(newContact);
     return (
         <div>
             <Card.Group>
@@ -12,7 +13,7 @@ function ContactCard() {
                         <Card.Description extra>They have done X random acts of kindness for you</Card.Description>
                     </Card.Content>
                     <Card.Content extra>
-                        <div className='ui two buttons'>
+                        <div className='ui one button'>
                             <Button basic color='green'>Suprise them!</Button>
                         </div>
                     </Card.Content>
