@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
+import { Card, Button } from 'semantic-ui-react'
+
+let newContact = {};
 
 function ContactCard() {
-    const [placeholder, placeholder2] = placeholder(newContact);
+    
+    const [placeholder, placeholder2] = useState(newContact);
     return (
         <div>
             <Card.Group>
@@ -23,4 +27,4 @@ function ContactCard() {
     )
 }
 
-export default function ContactCard;
+export default ContactCard;
