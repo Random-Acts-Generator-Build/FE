@@ -25,7 +25,7 @@ const RegistrationForm = (props) => {
   
     return (
       
-      <Modal trigger={<Button>Signup</Button>}>
+      <Modal trigger={<Button style={{background:'blue', color:'#fff'}} >Signup</Button>}>
         <Modal.Header>New Member Registration</Modal.Header>
         <Modal.Content>
     

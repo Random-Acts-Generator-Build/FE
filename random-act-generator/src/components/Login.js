@@ -25,7 +25,7 @@ const LoginForm = (props) => {
   
     return (
 
-      <Modal trigger={<Button>Login</Button>}>
+      <Modal trigger={<Button style={{background:'blue', color:'#fff'}}>Login</Button>}>
         <Modal.Header>Login</Modal.Header>
         <Modal.Content>
 

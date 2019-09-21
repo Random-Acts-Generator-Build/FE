@@ -20,10 +20,11 @@ export default function Home() {
       </header>
     </section>
     
+    <div style={{marginTop:'25px'}}>
+      <LoginForm />
 
-    <LoginForm />
-
-    <RegistrationForm />
+      <RegistrationForm />
+    </div>
     
     </>
   );
