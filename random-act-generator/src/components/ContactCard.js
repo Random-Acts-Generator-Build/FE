@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Button, Card } from 'semantic-ui-react'
+import 'semantic-ui-css/semantic.min.css';
 
 function ContactCard() {
     const [placeholder, placeholder2] = placeholder(newContact);
