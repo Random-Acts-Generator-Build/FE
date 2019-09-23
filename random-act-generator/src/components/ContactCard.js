@@ -3,7 +3,8 @@ import { Button, Card } from 'semantic-ui-react'
 import 'semantic-ui-css/semantic.min.css';
 
 function ContactCard() {
-    const [placeholder, placeholder2] = placeholder(newContact);
+    const newContact = {};
+    const [placeholder, placeholder2] = useState(newContact); 
     return (
         <div>
             <Card.Group>
@@ -25,4 +26,4 @@ function ContactCard() {
     )
 }
 
-export default function ContactCard;
+export default ContactCard;

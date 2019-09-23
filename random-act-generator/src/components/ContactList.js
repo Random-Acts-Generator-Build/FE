@@ -1,10 +1,29 @@
 import React, { useState } from 'react';
+import ContactCard from './ContactCard';
 
-function ContactList() {
-    const [placeholder, placeholder2] = placeholder(newContact);
+function ContactList(props) {
+    const newContact = {};
+    const [placeholder, placeholder2] = useState(newContact);
+    const myContactList = [
+        {
+            id: 0,
+            name: 'John Smith',
+            phone: '513-111-2222',
+            actsForThem: 2,
+            actsForMe: false
+        }
+    ];
     return (
         <div>
-            
+            {myContactList.map(contact => (
+                <ContactCard 
+                    key={contact.id} 
+                    phone={contact.phone} 
+                    name={contact.name} 
+                    actsForThem={contact.actsForThem}
+                    actsForMe={contact.actsForMe}
+                />
+      ))}
         </div>
     )
 }
