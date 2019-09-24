@@ -18,10 +18,9 @@ const ContactForm = (props) => {
   
     return (
       <Form>
-
-        <h2 style={{textAlign:'center'}}>Add Contact</h2><br />
-
-        {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
+        <h2 style={{textAlign:'center'}}>Add Contact</h2>
+        <br />{props.touched.name && props.errors.name && 
+        <p className='error'>{props.errors.name}</p>}
         <Field type="text" name="contactName" placeholder="Contact Name" />
         
         {props.touched.phoneNumber && props.errors.phoneNumber && <p className='error'>{props.errors.phoneNumber}</p>}
