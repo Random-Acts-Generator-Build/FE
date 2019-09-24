@@ -26,10 +26,10 @@ const RegistrationForm = (props) => {
     return (
       
       <Modal trigger={<Button style={{background:'blue', color:'#fff'}} >Signup</Button>}>
-        <Modal.Header>New Member Registration</Modal.Header>
+        <Modal.Header style={{textAlign:'center'}}>New Member Registration</Modal.Header>
         <Modal.Content>
     
-          <Form style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px'}}>
+          <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px'}}>
 
             {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
             <Field type="text" name="username" placeholder="User Name" />
