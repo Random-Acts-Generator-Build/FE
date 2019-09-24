@@ -6,6 +6,8 @@ import * as yup from 'yup'
 
 import axios from 'axios'
 
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
+
 
 const RegistrationForm = (props) => {
 
@@ -22,29 +24,35 @@ const RegistrationForm = (props) => {
     // console.log(users)
   
     return (
-      <Form>
+      
+      <Modal trigger={<Button style={{background:'blue', color:'#fff'}} >Signup</Button>}>
+        <Modal.Header style={{textAlign:'center'}}>New Member Registration</Modal.Header>
+        <Modal.Content>
+    
+          <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px'}}>
 
-        <h2 style={{textAlign:'center'}}>New Member Registration</h2><br />
+            {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
+            <Field type="text" name="username" placeholder="User Name" />
+            
+            {props.touched.email && props.errors.email && <p className='error'>{props.errors.email}</p>}
+            <Field type="email" name="email" placeholder="Email" />
 
-        {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
-        <Field type="text" name="username" placeholder="User Name" />
-        
-        {props.touched.email && props.errors.email && <p className='error'>{props.errors.email}</p>}
-        <Field type="email" name="email" placeholder="Email" />
+            {props.touched.password && props.errors.password && <p className='error'>{props.errors.password}</p>}
+            <Field type="password" name="password" placeholder="Password" />
 
-        {props.touched.password && props.errors.password && <p className='error'>{props.errors.password}</p>}
-        <Field type="password" name="password" placeholder="Password" />
+            
+            {props.touched.tos && props.errors.tos && <p className='error'>{props.errors.tos}</p>}
+            <label>
+              <Field type="checkbox" name="tos" />
+                <span>Terms of Service</span>
+            </label>
 
-        
-        {props.touched.tos && props.errors.tos && <p className='error'>{props.errors.tos}</p>}
-        <label>
-          <Field type="checkbox" name="tos" />
-            <span>Terms of Service</span>
-        </label>
+            <button type="submit">Submit</button>
+      
+          </Form>
 
-        <button type="submit">Submit</button>
-  
-      </Form>
+          </Modal.Content>
+        </Modal>
     )
   }
   
