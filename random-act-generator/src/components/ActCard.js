@@ -11,10 +11,10 @@ const ActDiv = styled.div`
 `;
 
 export default function ActCard(props) {
-    const { id, name, description } = props.act;
+    const { id, service, description } = props.act;
     return (
         <ActDiv>
-            <h2>{name}</h2>
+            <h2>{service}</h2>
             <p>{description}</p>
         </ActDiv>
     );
