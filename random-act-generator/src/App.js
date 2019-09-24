@@ -14,8 +14,6 @@ function App() {
     <div className="App">
       <TabNav />
       <AppRouter />
-      <ContactList />
-      <ContactForm />
     </div>
   );
 }
