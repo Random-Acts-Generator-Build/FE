@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ContactCard from './ContactCard';
 
 function ContactList(props) {
@@ -10,7 +10,7 @@ function ContactList(props) {
             name: 'John Smith',
             phone: '513-111-2222',
             actsForThem: 2,
-            actsForMe: false
+            actsForMe: 0
         }
     ];
     return (
