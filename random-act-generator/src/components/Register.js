@@ -25,8 +25,8 @@ const RegistrationForm = (props) => {
   
     return (
       
-      <Modal trigger={<Button style={{background:'blue', color:'#fff'}} >Signup</Button>}>
-        <Modal.Header style={{textAlign:'center'}}>New Member Registration</Modal.Header>
+      <Modal trigger={<Button style={{background:'#cb8b41', color:'#fff'}} >Signup</Button>}>
+        <Modal.Header style={{textAlign:'center', background:'#99b3af', color:"#fff", fontFamily:"Quicksand"}}>New Member Registration</Modal.Header>
         <Modal.Content>
     
           <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px'}}>
@@ -47,7 +47,7 @@ const RegistrationForm = (props) => {
                 <span>Terms of Service</span>
             </label>
 
-            <button type="submit">Submit</button>
+            <button type="submit" style={{background:'#cb8b41', color:'#fff'}}>Submit</button>
       
           </Form>
 
