@@ -25,11 +25,11 @@ const LoginForm = (props) => {
   
     return (
 
-      <Modal trigger={<Button style={{background:'blue', color:'#fff'}}>Login</Button>}>
-        <Modal.Header style={{textAlign:'center'}}>Login</Modal.Header>
-        <Modal.Content>
+      <Modal trigger={<Button style={{background:'#cb8b41', color:'#fff'}}>Login</Button>}>
+        <Modal.Header style={{textAlign:'center', background:'#99b3af', color:"#fff", fontFamily:"Quicksand"}}>Login</Modal.Header>
+        <Modal.Content >
 
-          <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'200px'}}>
+          <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'200px', marginTop:"20px"}}>
 
             {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
             <Field type="text" name="username" placeholder="User Name" />
@@ -38,7 +38,7 @@ const LoginForm = (props) => {
             <Field type="password" name="password" placeholder="Password" />
 
 
-            <button type="submit">Login</button>
+            <button type="submit" style={{background:'#cb8b41', color:'#fff'}}>Login</button>
 
           </Form>
 
