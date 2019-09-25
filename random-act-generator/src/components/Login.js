@@ -6,6 +6,8 @@ import * as yup from 'yup'
 
 import axios from 'axios'
 
+import { Button, Header, Image, Modal } from 'semantic-ui-react'
+
 
 const LoginForm = (props) => {
 
@@ -22,20 +24,27 @@ const LoginForm = (props) => {
     // console.log(users)
   
     return (
-      <Form>
 
-        <h2 style={{textAlign:'center'}}>Login</h2><br />
+      <Modal trigger={<Button style={{background:'blue', color:'#fff'}}>Login</Button>}>
+        <Modal.Header style={{textAlign:'center'}}>Login</Modal.Header>
+        <Modal.Content>
 
-        {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
-        <Field type="text" name="username" placeholder="User Name" />
-        
-        {props.touched.password && props.errors.password && <p className='error'>{props.errors.password}</p>}
-        <Field type="password" name="password" placeholder="Password" />
+          <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'200px'}}>
+
+            {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
+            <Field type="text" name="username" placeholder="User Name" />
+
+            {props.touched.password && props.errors.password && <p className='error'>{props.errors.password}</p>}
+            <Field type="password" name="password" placeholder="Password" />
 
 
-        <button type="submit">Login</button>
-  
-      </Form>
+            <button type="submit">Login</button>
+
+          </Form>
+
+        </Modal.Content>
+      </Modal>
+      
     )
   }
   
