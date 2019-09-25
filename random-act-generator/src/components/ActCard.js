@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from 'semantic-ui-react'
 
 const ActDiv = styled.div`
   width: 400px;
@@ -11,11 +12,13 @@ const ActDiv = styled.div`
 `;
 
 export default function ActCard(props) {
-    const { id, name, description } = props.act;
+    const { id, service, description } = props.act;
     return (
         <ActDiv>
-            <h2>{name}</h2>
+            <h2>{service}</h2>
             <p>{description}</p>
+            <Button>edit</Button>
+            <Button>delete</Button>
         </ActDiv>
     );
 };
