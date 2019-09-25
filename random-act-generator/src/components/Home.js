@@ -6,25 +6,32 @@ import RegistrationForm from './Register';
 import LoginForm from './Login';
 
 
+
 export default function Home() {
   return (
       <>
-    <section className="home-page">
+    <section className="home-page" style={{background:"#99b3af", padding:"20px"}}>
+      
       <header>
-        <h1>Random Act Generator</h1>
+        <h1 style={{fontFamily:"Quicksand", color:"#fff"}}>Random Act Generator</h1>
         <img
           className="main-img ui centered medium circular image"
-          src="https://live.staticflickr.com/4605/39576557355_166b512015_m.jpg"
+          src="https://i.ibb.co/7KChYnP/kids.jpg"
           alt="Kindness Starts With You"
         />
       </header>
+
+      <div style={{marginTop:'25px', background:"#99b3af", padding:"20px"}}>
+      
+        <LoginForm />
+
+        <RegistrationForm />
+
+      </div>
+
     </section>
     
-    <div style={{marginTop:'25px'}}>
-      <LoginForm />
-
-      <RegistrationForm />
-    </div>
+   
     
     </>
   );
