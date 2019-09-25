@@ -24,6 +24,7 @@ export default function ActsList() {
         <section>
             {acts.map(act => (
                 <ActCard key={act.id} act={act} />
+                
             ))}
         </section>
     );

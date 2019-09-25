@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from 'semantic-ui-react'
 
 const ActDiv = styled.div`
   width: 400px;
@@ -16,6 +17,8 @@ export default function ActCard(props) {
         <ActDiv>
             <h2>{service}</h2>
             <p>{description}</p>
+            <Button>edit</Button>
+            <Button>delete</Button>
         </ActDiv>
     );
 };
