@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
-import { Button, Card } from 'semantic-ui-react'
+import { Button, Card } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
+import styled from 'styled-components';
+
+const CardDiv = styled.div`
+  width: 400px;
+  border: 2px solid #cb8b41;
+  border-radius: 10px;
+  background-color: #99b3af;
+  text-align: center;
+  margin: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 10px;
+`;
 
 function ContactCard(props) {
     const newContact = {};
     const [placeholder, placeholder2] = useState(newContact); 
     return (
-        <div>
+        <CardDiv>
             <Card.Group>
                 <Card>
                     <Card.Content>
@@ -22,7 +35,7 @@ function ContactCard(props) {
                     </Card.Content>
                 </Card>
             </Card.Group>
-        </div>
+        </CardDiv>
     )
 }
 
