@@ -2,6 +2,18 @@ import React, { useState , useEffect } from 'react'
 import { withFormik, Form, Field } from 'formik'
 import * as yup from 'yup'
 import axios from 'axios'
+import styled from 'styled-components';
+
+const ContactFormDiv = styled.div`
+  width: 400px;
+  border: 2px solid #cb8b41;
+  border-radius: 10px;
+  background-color: #f6f7fb;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+`;
 
 
 const ContactForm = (props) => {
@@ -17,18 +29,19 @@ const ContactForm = (props) => {
     // console.log(props.status)
   
     return (
-      <Form>
-        <h2 style={{textAlign:'center'}}>Add Contact</h2>
-        <br />{props.touched.name && props.errors.name && 
-        <p className='error'>{props.errors.name}</p>}
-        <Field type="text" name="contactName" placeholder="Contact Name" />
-        
-        {props.touched.phoneNumber && props.errors.phoneNumber && <p className='error'>{props.errors.phoneNumber}</p>}
-        <Field type="text" name="phoneNumber" placeholder="Phone Number" />
+      <ContactFormDiv>
+        <Form>
+          <h2 style={{textAlign:'center'}}>Add Contact</h2>
+          <br />{props.touched.name && props.errors.name && 
+          <p className='error'>{props.errors.name}</p>}
+          <Field type="text" name="contactName" placeholder="Contact Name" />
+          
+          {props.touched.phoneNumber && props.errors.phoneNumber && <p className='error'>{props.errors.phoneNumber}</p>}
+          <Field type="text" name="phoneNumber" placeholder="Phone Number" />
 
-        <button type="submit">Submit</button>
-  
-      </Form>
+          <button type="submit">Submit</button>
+        </Form>
+      </ContactFormDiv>
     )
   }
   
