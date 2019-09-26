@@ -2,6 +2,12 @@ import React, { useEffect, useState } from 'react';
 import ContactCard from './ContactCard';
 import ContactForm from './ContactForm';
 import axios from 'axios';
+import styled from 'styled-components';
+
+const CardsDiv = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 
 function ContactList() {
@@ -27,7 +33,7 @@ function ContactList() {
         <div>
             <ContactForm />
             <h1>Contacts</h1>
-            <div>
+            <CardsDiv>
             {contacts.map(contact => (
                 <ContactCard 
                     key={contacts.indexOf(contact)} 
@@ -37,7 +43,7 @@ function ContactList() {
                     actsForMe={Math.floor(Math.random()*100%10)}
                 />
       ))}
-            </div>
+            </CardsDiv>
         </div>
     )
 }
