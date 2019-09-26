@@ -31,7 +31,6 @@ function ContactList() {
 
     return (
         <div>
-            <ContactForm />
             <h1>Contacts</h1>
             <CardsDiv>
             {contacts.map(contact => (
@@ -44,6 +43,7 @@ function ContactList() {
                 />
       ))}
             </CardsDiv>
+            <ContactForm />
         </div>
     )
 }
