@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Button, Card } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import styled from 'styled-components';
+import axios from 'axios';
+
 
 const CardDiv = styled.div`
   width: 400px;
