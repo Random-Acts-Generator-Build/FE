@@ -8,9 +8,9 @@ export default function ActsList() {
     useEffect(() => {
         const getActs = () => {
             axios
-                .get('https://randomactsgenerator.herokuapp.com/api/services')
+                .get('https://generate-random-acts.herokuapp.com/api/acts')
                 .then(response => {
-                    console.log(response);
+                    console.log(response.data);
                     setActs(response.data);
                 })
                 .catch(error => {
@@ -21,12 +21,14 @@ export default function ActsList() {
     }, []);
 
     return (
-        <section>
+
+            <section className= "act-cards">
             {acts.map(act => (
                 <ActCard key={act.id} act={act} />
                 
             ))}
-        </section>
+            </section>
+        
     );
 
 

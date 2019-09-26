@@ -3,19 +3,21 @@ import styled from "styled-components";
 import { Button } from 'semantic-ui-react'
 
 const ActDiv = styled.div`
-  width: 400px;
-  border: 2px solid blue;
+  width: 300px;
+  border: 2px solid black;
   border-radius: 10px;
-  background-color: green;
+  background-color: #99b3af;
   text-align: center;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
+  color: #cb8b41;
+  margin-top: 20px;
 `;
 
 export default function ActCard(props) {
-    const { id, service, description } = props.act;
+    const { id, act_name, description } = props.act;
     return (
         <ActDiv>
-            <h2>{service}</h2>
+            <h2>{act_name}</h2>
             <p>{description}</p>
             <Button>edit</Button>
             <Button>delete</Button>
