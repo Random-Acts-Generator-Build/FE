@@ -1,45 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import ContactCard from './ContactCard';
 import ContactForm from './ContactForm';
+import axios from 'axios';
 
-function ContactList(props) {
-    const newContact = {};
-    const [contacts, setContacts] = useState(newContact);
-    const myContactList = [
-        {
-            id: 0,
-            name: 'John Smith',
-            phone: '513-111-2222',
-            actsForThem: 2,
-            actsForMe: 0
-        }, 
-        {
-            id: 1,
-            name: 'John Smith2',
-            phone: '513-111-2222',
-            actsForThem: 2,
-            actsForMe: 0
-        },
-        {
-            id: 2,
-            name: 'John Smith3',
-            phone: '513-111-2222',
-            actsForThem: 2,
-            actsForMe: 0
+
+function ContactList() {
+    const [contacts, setContacts] = useState([]);
+    
+    
+    useEffect(() => {
+        const getContacts = () => {
+            axios
+            .get('https://generate-random-acts.herokuapp.com/api/users/1/contacts')
+            .then(response => {
+                console.log(response);
+                setContacts(response.data);
+            })
+            .catch(error => {
+                console.error('Server Error', error);
+            })
         }
-    ];
+            getContacts();
+    }, []);
+
     return (
         <div>
             <ContactForm />
             <h1>Contacts</h1>
             <div>
-            {myContactList.map(contact => (
+            {contacts.map(contact => (
                 <ContactCard 
-                    key={contact.id} 
-                    phone={contact.phone} 
-                    name={contact.name} 
-                    actsForThem={contact.actsForThem}
-                    actsForMe={contact.actsForMe}
+                    key={contacts.indexOf(contact)} 
+                    phone={contact.phone_number} 
+                    name={contact.contact_name} 
+                    actsForThem={Math.floor(Math.random()*100%10)}
+                    actsForMe={Math.floor(Math.random()*100%10)}
                 />
       ))}
             </div>
