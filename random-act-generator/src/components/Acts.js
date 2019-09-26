@@ -8,7 +8,7 @@ import ActsList from "./ActsList";
 function Acts () {
     return (
         <Container>
-            <h1>Acts</h1>
+            <h1 className="acts-header">Acts</h1>
             <p>You can view/edit or create acts.</p>
             <NavLink to="/acts/viewedit"><Button>View/Edit Acts</Button></NavLink>
             <NavLink to="/acts/create"><Button>Create Acts</Button></NavLink>

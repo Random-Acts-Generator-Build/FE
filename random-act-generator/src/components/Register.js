@@ -29,7 +29,7 @@ const RegistrationForm = (props) => {
         <Modal.Header style={{textAlign:'center', background:'#99b3af', color:"#fff", fontFamily:"Quicksand"}}>New Member Registration</Modal.Header>
         <Modal.Content>
     
-          <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px'}}>
+          <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px', marginTop:"20px"}}>
 
             {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
             <Field type="text" name="username" placeholder="User Name" />
