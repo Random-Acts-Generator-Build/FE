@@ -13,7 +13,7 @@ export default function AppRouter() {
         <Route path="/acts" component={Acts} />
         <Route exact path= "/" component={Home} />
         <Route path="/contacts" component={ContactList} />
-        {/* <Route path="/randomizer" component={Randomizer} /> */}
+        <Route path="/randomizer" component={Randomizer} />
       </Switch>
     </div>
   );
