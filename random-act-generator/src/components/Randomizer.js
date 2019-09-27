@@ -31,7 +31,7 @@ export default function Randomizer () {
                 })
         
             axios
-                .get('https://generate-random-acts.herokuapp.com/api/users/1/contacts')
+                .get('https://generate-random-acts.herokuapp.com/api/users/2/contacts')
                 .then(response => {
                     setContacts(response.data);
                 })
@@ -42,10 +42,10 @@ export default function Randomizer () {
     , []);
 
 
-    let randomContact = contacts[Math.ceil(Math.random() * contacts.length)] || {contact_name:""};
+    let randomContact = contacts[Math.ceil(Math.random() * (contacts.length-1))] || {contact_name:""};
     console.log (randomContact);
 
-    let randomAct = acts[Math.ceil(Math.random() * acts.length)] || {act_name:""};
+    let randomAct = acts[Math.ceil(Math.random() * (acts.length-1))] || {act_name:""};
     console.log (randomAct);
 
     return (
