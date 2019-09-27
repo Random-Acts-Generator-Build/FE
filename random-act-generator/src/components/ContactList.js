@@ -9,6 +9,10 @@ const CardsDiv = styled.div`
   flex-wrap: wrap;
 `;
 
+const HeaderDiv = styled.div`
+    margin: 50px;
+`;
+
 
 function ContactList() {
     const [contacts, setContacts] = useState([]);
@@ -31,8 +35,8 @@ function ContactList() {
 
     return (
         <div>
-            <ContactForm />
-            <h1>Contacts</h1>
+            <HeaderDiv><h1>Contacts</h1>
+            </HeaderDiv>
             <CardsDiv>
             {contacts.map(contact => (
                 <ContactCard 
@@ -44,6 +48,7 @@ function ContactList() {
                 />
       ))}
             </CardsDiv>
+            <ContactForm />
         </div>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from "react";
 import { Button, Card } from 'semantic-ui-react';
 import 'semantic-ui-css/semantic.min.css';
 import styled from 'styled-components';
@@ -18,8 +18,29 @@ const CardDiv = styled.div`
 `;
 
 function ContactCard(props) {
-    const newContact = {};
-    const [placeholder, placeholder2] = useState(newContact); 
+    const [acts, setActs] = useState([]);
+    
+    
+    useEffect(() => {
+       
+            axios
+                .get('https://generate-random-acts.herokuapp.com/api/acts')
+                .then(response => {
+                    setActs(response.data);
+                })
+                .catch(error => {
+                    console.error('Server Error', error);
+                })
+        }
+    , []);
+
+    let randomAct = acts[Math.ceil(Math.random() * acts.length)] || {act_name:""};
+    console.log (randomAct);
+
+    
+    function handleClick() {
+        alert(`Surprise ${props.name} with ${randomAct.act_name}`);
+        }
     return (
         <CardDiv>
             <Card.Group>
@@ -32,7 +53,7 @@ function ContactCard(props) {
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui one button'>
-                            <Button basic color='green'>Suprise them!</Button>
+                        <Button onClick={handleClick}>Suprise them!</Button>
                         </div>
                     </Card.Content>
                 </Card>
