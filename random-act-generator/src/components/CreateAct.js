@@ -14,9 +14,9 @@ const CreateAct = ({errors, touched, status}) => {
 
     return (
         <Form>
-             {touched.name && errors.name && <p className="error">{errors.name}</p>}
+             {touched.name && errors.name && <p className="act-error">{errors.name}</p>}
              <Field className="input name" type="text" name="name" placeholder="Name" />
-             {touched.description && errors.description && <p className="error">{errors.description}</p>}
+             {touched.description && errors.description && <p className="act-error">{errors.description}</p>}
              <Field className="input description" component="textarea" name="description" placeholder="Description" />
              <Button type="submit">Submit</Button>
         </Form>

@@ -48,3 +48,19 @@ input.error {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+.act-error {
+  
+  width: 200px;
+  margin-top: 30px;
+  margin-left: 41%;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  border-radius: 4px;
+  padding: 5px 10px;
+}
+
+.acts-button {
+  margin-bottom: 50px;
+}

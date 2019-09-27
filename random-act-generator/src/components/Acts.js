@@ -15,6 +15,7 @@ function Acts () {
             <Route exact path= "/acts/create" component={CreateAct} />
             <Route exact path= "/acts/viewedit" component={ActsList} />
         </Container>
+       
     )
 }
 
