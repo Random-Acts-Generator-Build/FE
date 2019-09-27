@@ -17,9 +17,13 @@ const CardDiv = styled.div`
   margin-top: 10px;
 `;
 
+
+
 function ContactCard(props) {
-    const newContact = {};
-    const [placeholder, placeholder2] = useState(newContact); 
+    function handleClick() {
+          alert(`Surprise ${props.name} with an act of kindness`);
+      }
+    
     return (
         <CardDiv>
             <Card.Group>
@@ -32,7 +36,7 @@ function ContactCard(props) {
                     </Card.Content>
                     <Card.Content extra>
                         <div className='ui one button'>
-                            <Button basic color='green'>Suprise them!</Button>
+                            <Button onClick={handleClick}>Suprise them!</Button>
                         </div>
                     </Card.Content>
                 </Card>
