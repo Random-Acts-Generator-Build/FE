@@ -11,17 +11,28 @@ import { Button, Header, Image, Modal } from 'semantic-ui-react'
 
 const LoginForm = (props) => {
 
+    //Holds State for User Name and PW
     const [member, setMember] = useState([{}])
+
+    //Holds State for Login Button.
+    const [spinOn, setSpinOn] = useState(false)
+
   
     useEffect( () => {
       if(props.status){
+        
         setMember([...member, props.status]) //<-- .status is the axios response object
+        
+        
+
       }
     }, [props.status])
   
     // console.log(props.status)
   
     // console.log(users)
+
+    console.log(member)
   
     return (
 
@@ -38,7 +49,7 @@ const LoginForm = (props) => {
             <Field type="password" name="password" placeholder="Password" />
 
 
-            <button type="submit" style={{background:'#cb8b41', color:'#fff'}}>Login</button>
+            <button onClick={ () => setSpinOn(!spinOn)} className={spinOn ? 'animated bounceInLeft' : ''} type="submit" style={{background:'#cb8b41', color:'#fff'}}>Modal Login</button>
 
           </Form>
 
@@ -73,7 +84,7 @@ const LoginForm = (props) => {
         console.log("Error: ", err)
       })
       
-      console.log(values)
+      
     }
   
   })(LoginForm)

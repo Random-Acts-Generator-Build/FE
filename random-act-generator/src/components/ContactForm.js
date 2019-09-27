@@ -17,17 +17,6 @@ const ContactFormDiv = styled.div`
 
 
 const ContactForm = (props) => {
-
-    const [contact, setContact] = useState([{}])
-  
-/*    useEffect( () => {
-      if(props.status){
-        setContact([...member, props.status]) //<-- .status is the axios response object
-      }
-    }, [props.status])
-*/  
-    // console.log(props.status)
-  
     return (
       <ContactFormDiv>
         <Form>
