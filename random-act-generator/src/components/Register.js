@@ -34,6 +34,7 @@ const RegistrationForm = (props) => {
         <Modal.Header style={{textAlign:'center', background:'#99b3af', color:"#fff", fontFamily:"Quicksand"}}>New Member Registration</Modal.Header>
         <Modal.Content>
     
+          <div className="signup-msg"></div>
           <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px', marginTop:"20px"}}>
 
             {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
@@ -69,11 +70,18 @@ const RegistrationForm = (props) => {
       password: yup.string().required('You Forgot Password Foo!')
     }),
     handleSubmit: (values, {setStatus}) => {
-      axios.post('https://reqres.in/api/users', values)
+      axios.post('https://generate-random-acts.herokuapp.com/api/auth/register', values)
       .then(( res ) => {
         
         setStatus(res.data)
-        // console.log(res)
+        
+        console.log(res.data, 'res.data')
+
+        const signup_msg = document.querySelector('.signup-msg')
+        
+          signup_msg.textContent = res.data.message
+
+        // console.log(member, 'member')
       })
       .catch (( err ) => {
         console.log("Error: ", err)

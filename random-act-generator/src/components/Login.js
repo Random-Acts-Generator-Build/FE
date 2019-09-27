@@ -40,6 +40,10 @@ const LoginForm = (props) => {
         <Modal.Header style={{textAlign:'center', background:'#99b3af', color:"#fff", fontFamily:"Quicksand"}}>Login</Modal.Header>
         <Modal.Content >
 
+          <div style={{width: '100%', textAlign:'center'}}>
+            <h1 className="signup-msg" style={{fontFamily:'Quicksand', color:'red'}}></h1>
+          </div>
+
           <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'200px', marginTop:"20px"}}>
 
             {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
@@ -74,11 +78,22 @@ const LoginForm = (props) => {
       password: yup.string().required('You Forgot Password Foo!'),
     }),
     handleSubmit: (values, {setStatus}) => {
-      axios.post('https://reqres.in/api/users', values)
+      axios.post('https://generate-random-acts.herokuapp.com/api/auth/login', values)
       .then(( res ) => {
         
         setStatus(res.data)
-        // console.log(res)
+
+        const token = res.data.token
+
+        localStorage.setItem('token', token)
+
+        console.log(res.data)
+
+
+        const signup_msg = document.querySelector('.signup-msg')
+        
+          signup_msg.textContent = res.data.message
+
       })
       .catch (( err ) => {
         console.log("Error: ", err)
