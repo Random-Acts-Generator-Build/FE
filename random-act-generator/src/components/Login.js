@@ -41,7 +41,7 @@ const LoginForm = (props) => {
         <Modal.Content >
 
           <div style={{width: '100%', textAlign:'center'}}>
-            <h1 className="signup-msg" style={{fontFamily:'Quicksand', color:'red'}}></h1>
+            <h1 className="login-msg" style={{fontFamily:'Quicksand', color:'red'}}></h1>
           </div>
 
           <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'200px', marginTop:"20px"}}>
@@ -90,7 +90,7 @@ const LoginForm = (props) => {
         console.log(res.data)
 
 
-        const signup_msg = document.querySelector('.signup-msg')
+        const signup_msg = document.querySelector('.login-msg')
         
           signup_msg.textContent = res.data.message
 
