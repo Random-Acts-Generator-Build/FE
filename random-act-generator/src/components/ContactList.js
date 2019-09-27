@@ -21,7 +21,7 @@ function ContactList() {
     useEffect(() => {
         const getContacts = () => {
             axios
-            .get('https://generate-random-acts.herokuapp.com/api/users/1/contacts')
+            .get('https://generate-random-acts.herokuapp.com/api/users/3/contacts')
             .then(response => {
                 console.log(response);
                 setContacts(response.data);
