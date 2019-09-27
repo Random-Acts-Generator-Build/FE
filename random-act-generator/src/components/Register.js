@@ -12,6 +12,9 @@ import { Button, Header, Image, Modal } from 'semantic-ui-react'
 const RegistrationForm = (props) => {
 
     const [member, setMember] = useState([{}])
+
+    //Holds State for Login Button.
+    const [spinOn, setSpinOn] = useState(false)
   
     useEffect( () => {
       if(props.status){
@@ -47,7 +50,7 @@ const RegistrationForm = (props) => {
                 <span>Terms of Service</span>
             </label>
 
-            <button type="submit" style={{background:'#cb8b41', color:'#fff'}}>Submit</button>
+            <button onClick={ () => setSpinOn(!spinOn)} className={spinOn ? 'animated bounceInLeft' : ''} type="submit" style={{background:'#cb8b41', color:'#fff'}}>Submit</button>
       
           </Form>
 
