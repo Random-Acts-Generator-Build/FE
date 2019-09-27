@@ -45,8 +45,8 @@ const ContactForm = (props) => {
       }
     },
     validationSchema: yup.object().shape({
-        contactName: yup.string().required('You Forgot name Foo!'),
-        phoneNumber: yup.string().required('You Forgot phoneNumber Foo!')
+        contactName: yup.string().required('Real name or pseudonym, please'),
+        phoneNumber: yup.string().required('That is not your phone number')
     }),
     handleSubmit: (values, {setStatus}) => {
       axios.post('https://reqres.in/api/users', values)

@@ -26,6 +26,8 @@ const RegistrationForm = (props) => {
   
     // console.log(users)
   
+    console.log(member)
+
     return (
       
       <Modal trigger={<Button style={{background:'#cb8b41', color:'#fff'}} >Signup</Button>}>
@@ -36,20 +38,12 @@ const RegistrationForm = (props) => {
 
             {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
             <Field type="text" name="username" placeholder="User Name" />
-            
-            {props.touched.email && props.errors.email && <p className='error'>{props.errors.email}</p>}
-            <Field type="email" name="email" placeholder="Email" />
+          
 
             {props.touched.password && props.errors.password && <p className='error'>{props.errors.password}</p>}
             <Field type="password" name="password" placeholder="Password" />
 
             
-            {props.touched.tos && props.errors.tos && <p className='error'>{props.errors.tos}</p>}
-            <label>
-              <Field type="checkbox" name="tos" />
-                <span>Terms of Service</span>
-            </label>
-
             <button onClick={ () => setSpinOn(!spinOn)} className={spinOn ? 'animated bounceInLeft' : ''} type="submit" style={{background:'#cb8b41', color:'#fff'}}>Submit</button>
       
           </Form>
@@ -66,16 +60,13 @@ const RegistrationForm = (props) => {
       return { 
         //these keys line up with the 'name' attribute in our Fields
         username: currentValuesFromOurForm.username || '',
-        email: currentValuesFromOurForm.email || '',
-        password: currentValuesFromOurForm.password || '',
-        tos: currentValuesFromOurForm.tos || false
+        password: currentValuesFromOurForm.password || ''
+        
       }
     },
     validationSchema: yup.object().shape({
       username: yup.string().required('You Forgot name Foo!'),
-      email: yup.string().email('Please Use An Email Address').required('You Forgot email Foo!'),
-      password: yup.string().required('You Forgot Password Foo!'),
-      tos: yup.boolean().oneOf([true], 'Terms of Service Must Be Checked')
+      password: yup.string().required('You Forgot Password Foo!')
     }),
     handleSubmit: (values, {setStatus}) => {
       axios.post('https://reqres.in/api/users', values)
@@ -88,7 +79,7 @@ const RegistrationForm = (props) => {
         console.log("Error: ", err)
       })
       
-      console.log(values)
+      
     }
   
   })(RegistrationForm)
