@@ -10,6 +10,7 @@ export default function AppRouter() {
       <Switch>
         <Route path="/acts" component={Acts} />
         <Route exact path= "/" component={Home} />
+        />
       </Switch>
     </div>
   );

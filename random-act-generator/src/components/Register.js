@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from 'react'
 
-import { withFormik, Form, Field } from 'formik'
+import { withFormik, Form, Field, Formik } from 'formik'
 
 import * as yup from 'yup'
 
@@ -72,7 +72,7 @@ const RegistrationForm = (props) => {
       username: yup.string().required('You Forgot name Foo!'),
       password: yup.string().required('You Forgot Password Foo!')
     }),
-    handleSubmit: (values, {setStatus}) => {
+    handleSubmit: (values, {setStatus, props}) => {
       axios.post('https://generate-random-acts.herokuapp.com/api/auth/register', values)
       .then(( res ) => {
         
@@ -84,12 +84,16 @@ const RegistrationForm = (props) => {
 
         console.log(res.data, 'res.data')
 
+        console.log(props, 'formik-props')
+
+
+        props.history.push('/acts')
 
         const signup_msg = document.querySelector('.signup-msg')
         
-          signup_msg.textContent = `Ok, ${res.data.message}! Leeeet's Goooooooool`
+          signup_msg.textContent = `Ok, ${res.data.user.username}! Leeeet's Goooooooool`
 
-          this.props.history.push('/acts')
+          
 
       })
       .catch (( err ) => {

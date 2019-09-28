@@ -77,7 +77,7 @@ const LoginForm = (props) => {
       username: yup.string().required('You Forgot name Foo!'),      
       password: yup.string().required('You Forgot Password Foo!'),
     }),
-    handleSubmit: (values, {setStatus}) => {
+    handleSubmit: (values, {setStatus, props}) => {
       axios.post('https://generate-random-acts.herokuapp.com/api/auth/login', values)
       .then(( res ) => {
         
@@ -89,6 +89,8 @@ const LoginForm = (props) => {
 
         console.log(res.data)
 
+        
+        props.history.push('/acts')
 
         const signup_msg = document.querySelector('.login-msg')
         
