@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, Route } from "react-router-dom";
 import { Button, Header, Image, Modal } from 'semantic-ui-react'
 import ModalModalExample from './Login';
 import RegistrationForm from './Register';
@@ -23,9 +23,9 @@ export default function Home() {
 
       <div style={{marginTop:'25px', background:"#99b3af", padding:"20px"}}>
       
-        <LoginForm />
-
-        <RegistrationForm />
+      <Route path='/' render={props => <LoginForm {...props} />} />
+        
+      <Route path='/' render={props => <RegistrationForm {...props} /> } />
 
       </div>
 

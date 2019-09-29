@@ -1,6 +1,6 @@
 import React, { useState , useEffect } from 'react'
 
-import { withFormik, Form, Field } from 'formik'
+import { withFormik, Form, Field, Formik } from 'formik'
 
 import * as yup from 'yup'
 
@@ -34,7 +34,10 @@ const RegistrationForm = (props) => {
         <Modal.Header style={{textAlign:'center', background:'#99b3af', color:"#fff", fontFamily:"Quicksand"}}>New Member Registration</Modal.Header>
         <Modal.Content>
     
-          <div className="signup-msg"></div>
+          <div style={{width: '100%', textAlign:'center'}}>
+            <h1 className="signup-msg" style={{fontFamily:'Quicksand', color:'red'}}></h1>
+          </div>
+          
           <Form className="charlie-form" style={{display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'space-around', height:'300px', marginTop:"20px"}}>
 
             {props.touched.name && props.errors.name && <p className='error'>{props.errors.name}</p>}
@@ -69,19 +72,29 @@ const RegistrationForm = (props) => {
       username: yup.string().required('You Forgot name Foo!'),
       password: yup.string().required('You Forgot Password Foo!')
     }),
-    handleSubmit: (values, {setStatus}) => {
+    handleSubmit: (values, {setStatus, props}) => {
       axios.post('https://generate-random-acts.herokuapp.com/api/auth/register', values)
       .then(( res ) => {
         
         setStatus(res.data)
-        
+
+        const token = res.data.token
+
+        localStorage.setItem('token', token)
+
         console.log(res.data, 'res.data')
+
+        console.log(props, 'formik-props')
+
+
+        props.history.push('/acts')
 
         const signup_msg = document.querySelector('.signup-msg')
         
-          signup_msg.textContent = res.data.message
+          signup_msg.textContent = `Ok, ${res.data.user.username}! Leeeet's Goooooooool`
 
-        // console.log(member, 'member')
+          
+
       })
       .catch (( err ) => {
         console.log("Error: ", err)
