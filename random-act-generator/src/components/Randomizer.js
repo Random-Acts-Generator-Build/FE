@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import styled from "styled-components";
+import TabNav from "./TabNav";
 
 const RandomDiv = styled.div`
   width: 500px;
@@ -31,7 +32,7 @@ export default function Randomizer () {
                 })
         
             axios
-                .get('https://generate-random-acts.herokuapp.com/api/users/1/contacts')
+                .get('https://generate-random-acts.herokuapp.com/api/users/2/contacts')
                 .then(response => {
                     setContacts(response.data);
                 })
@@ -42,15 +43,18 @@ export default function Randomizer () {
     , []);
 
 
-    let randomContact = contacts[Math.ceil(Math.random() * contacts.length)] || {contact_name:""};
+    let randomContact = contacts[Math.ceil(Math.random() * (contacts.length-1))] || {contact_name:""};
     console.log (randomContact);
 
-    let randomAct = acts[Math.ceil(Math.random() * acts.length)] || {act_name:""};
+    let randomAct = acts[Math.ceil(Math.random() * (acts.length-1))] || {act_name:""};
     console.log (randomAct);
 
     return (
+        <div>
+        <TabNav />
         <RandomDiv><h1>Act: {randomAct.act_name}</h1><br></br>
         <h1>Contact: {randomContact.contact_name}</h1><br></br>
         <h2>Phone number: {randomContact.phone_number} </h2></RandomDiv>
+        </div>
     )
 }

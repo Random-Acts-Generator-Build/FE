@@ -3,6 +3,7 @@ import ContactCard from './ContactCard';
 import ContactForm from './ContactForm';
 import axios from 'axios';
 import styled from 'styled-components';
+import TabNav from './TabNav'
 
 const CardsDiv = styled.div`
   display: flex;
@@ -35,6 +36,7 @@ function ContactList() {
 
     return (
         <div>
+             <TabNav />
             <HeaderDiv><h1>Contacts</h1>
             </HeaderDiv>
             <CardsDiv>
