@@ -92,13 +92,19 @@ const LoginForm = (props) => {
         
         props.history.push('/acts')
 
-        const signup_msg = document.querySelector('.login-msg')
+        const login_msg = document.querySelector('.login-msg')
         
-          signup_msg.textContent = res.data.message
+          login_msg.textContent = res.data.message
 
       })
       .catch (( err ) => {
         console.log("Error: ", err)
+
+        const login_msg = document.querySelector('.login-msg')
+
+          login_msg.textContent = "Login Information Not Found"
+
+
       })
       
       

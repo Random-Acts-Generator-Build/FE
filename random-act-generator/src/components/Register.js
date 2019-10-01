@@ -89,15 +89,20 @@ const RegistrationForm = (props) => {
 
         props.history.push('/acts')
 
-        const signup_msg = document.querySelector('.signup-msg')
+        // const signup_msg = document.querySelector('.signup-msg')
         
-          signup_msg.textContent = `Ok, ${res.data.user.username}! Leeeet's Goooooooool`
+        //   signup_msg.textContent = `Ok, ${res.data.user.username}! Leeeet's Goooooooool`
 
           
 
       })
       .catch (( err ) => {
         console.log("Error: ", err)
+
+        // const signup_msg = document.querySelector('.signup-msg')
+        
+        //   signup_msg.textContent = "Signup Failed"
+
       })
       
       
